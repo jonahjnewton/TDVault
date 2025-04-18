@@ -13,6 +13,8 @@ However when closing the scene, the edits to USD stages must either be applied t
 ## Solution
 To get around this, we can create a new USD layer that references the USD we wish to edit, and apply overrides to this new USD layer instead. We can even set up a callback to run on scene save to version these override files, so we can go back to a previous version if need be (e.g. with Flow Production Tracking).
 
+The following code snippets and examples are available in the [TDVault GitHub repo](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/).
+
 ### Creating the override layer
 The logic for the `mayaUsdProxyShape` and override layer creation can be found in the `createOverrideLayer()` function within [`MayaUSDOverrides.py`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/MayaUSDOverrides.py)
 ```python
