@@ -7,7 +7,6 @@ paginate:            5
 permalink:           pretty
 
 baseurl: ""
-url: "tdvault.jonahnewton.com.au"
 
 # About/contact
 author:
