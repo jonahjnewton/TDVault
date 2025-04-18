@@ -103,7 +103,7 @@ def saveUSDOverrideEdits():
             print(n + " USD layer was dirty - saved new version of overrides")
 ```
 
-### Example
+## Example
 An example layer created with these functions can be found in [usd_overrides/setTest01_override_v001.usda](./usd_overrides/setTest01_override_v001.usda)
 
 * [`setTest01`](./setTest01.usda) has one reference to [`setPieceTest01`](./setPieceTest01.usda) (a cube) at `/setTest01/setPieceTest01_001`. This setPiece reference has some transformation data on it.
