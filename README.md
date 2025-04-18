@@ -5,5 +5,6 @@ Over my time as a Pipeline Technical Director in the 3D Animation & Visual Effec
 
 ## Katana
 *  [Creating/Pasting Nodes in a Floating Layer in Katana](./Katana/KatanaFloatingNodes/README.md)
+
 ## Maya
 * [Saving Override Edits to a USD Stage with Maya USD](./Maya/MayaUSDOverrides/README.md)
