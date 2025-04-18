@@ -2,8 +2,6 @@
 layout: post
 title: Saving Override Edits to a USD Stage with Maya USD
 ---
-# Saving Override Edits to a USD Stage with Maya USD
-
 At the UTS Animal Logic Academy, I wrote a pipeline that utilised Maya USD to allow for set assembly and set dressing/layout overrides to be published down the pipe while leaving the original set USD untouched, but there are some quirks.
 ## Problem
 Maya USD stores edits to USD stages in memory while you have the Maya scene open. You can see these layers within the [USD Layer Editor](https://help.autodesk.com/view/MAYAUL/2025/ENU/?guid=GUID-4FAD73CA-E775-4009-9DCB-3BC6792C465E) in Maya. 
