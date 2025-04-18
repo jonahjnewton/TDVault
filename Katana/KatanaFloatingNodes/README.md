@@ -7,7 +7,8 @@ When creating a node (or pasting a node) programatically in Katana, the node is 
 You can replicate the "floating" functionality programmatically by getting the Node Graph's Tab object and using the `prepareFloatingLayerWithPasteBounds` and `enableFloatingLayer` functions.
   
 ```python
-# This first line pastes a node based on an xmlTree. This could also simply be a new node made with NodegraphAPI.CreateNode()
+# This first line pastes a node based on an xmlTree.
+# This could also simply be a new node made with NodegraphAPI.CreateNode()
 newNode = KatanaFile.Paste(xmlTree, NodegraphAPI.GetRootNode())[0]
 
 nodeGraphTab = UI4.App.Tabs.FindTopTab('Node Graph')
