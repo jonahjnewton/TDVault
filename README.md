@@ -1,3 +1,6 @@
+---
+title:TD Vault
+---
 Hi! My name is Jonah Newton. I write software to help people create cool stuff. 
 Welcome to TD Vault.
 
