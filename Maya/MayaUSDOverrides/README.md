@@ -105,3 +105,9 @@ def saveUSDOverrideEdits():
 
 ### Example
 An example layer created with these functions can be found in [usd_overrides/setTest01_override_v001.usda](./usd_overrides/setTest01_override_v001.usda)
+
+* [`setTest01`](./setTest01.usda) has one reference to [`setPieceTest01`](./setPieceTest01.usda) (a cube) at `/setTest01/setPieceTest01_001`. This setPiece reference has some transformation data on it.
+* The override layer ([`setTest01_override_v001`](./usd_overrides/setTest01_override_v001.usda) references `setTest01`, and overrides the transformation data on `setPieceTest01_001` to change the position of the setPiece. Note that this does not affect the original `setTest01` layer.
+* Another reference to `setPieceTest01` is loaded to `/setTest01/setPieceTest01_002`. This ensures there are no clashes with the first reference.
+* A reference to a new setPiece, [`setPieceTest02`](./setPieceTest02.usda) (a cone) is added at `/setTest01/setPieceTest02_001`.
+* Neither of the new references are added to the original `setTest01` layer. They are only present in the new override layer.
