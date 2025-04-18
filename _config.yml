@@ -2,7 +2,7 @@ remote_theme: jonahjnewton/TDVaultSite
 
 title:               TD Vault
 tagline:             'Notes on Programming for 3D Animation & VFX'
-description:         'A space for me to ramble and keep notes on Animation/VFX programming concepts. By <a href="https://jonahnewton.com.au">Jonah Newton</a>'
+description:         'Notes on Programming for 3D Animation & VFX. My learnings as a Pipeline TD that may not be available or fully documented online. By <a href="https://jonahnewton.com.au">Jonah Newton</a>'
 paginate:            5
 permalink:           pretty
 
