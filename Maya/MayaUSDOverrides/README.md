@@ -107,7 +107,19 @@ def saveUSDOverrideEdits():
 An example layer created with these functions can be found in [usd_overrides/setTest01_override_v001.usda](./usd_overrides/setTest01_override_v001.usda)
 
 * [`setTest01`](./setTest01.usda) has one reference to [`setPieceTest01`](./setPieceTest01.usda) (a cube) at `/setTest01/setPieceTest01_001`. This setPiece reference has some transformation data on it.
-* The override layer ([`setTest01_override_v001`](./usd_overrides/setTest01_override_v001.usda) references `setTest01`, and overrides the transformation data on `setPieceTest01_001` to change the position of the setPiece. Note that this does not affect the original `setTest01` layer.
-* Another reference to `setPieceTest01` is loaded to `/setTest01/setPieceTest01_002`. This ensures there are no clashes with the first reference.
-* A reference to a new setPiece, [`setPieceTest02`](./setPieceTest02.usda) (a cone) is added at `/setTest01/setPieceTest02_001`.
-* Neither of the new references are added to the original `setTest01` layer. They are only present in the new override layer.
+![SCR-20250418-opp](https://github.com/user-attachments/assets/98e283bb-6a92-4654-a442-4dd20d096f11)
+
+* The override layer ([`setTest01_override_v001`](./usd_overrides/setTest01_override_v001.usda)) references `setTest01`, and overrides the transformation data on `setPieceTest01_001` to change the position of the setPiece. Note that this does not affect the original `setTest01` layer.
+![SCR-20250418-or4](https://github.com/user-attachments/assets/2ae92f60-12d7-42ed-a6cf-926c366646a4)
+
+* Another reference to `setPieceTest01` is loaded to `/setTest01/setPieceTest01_002`. This ensures there are no clashes with the first reference. This new reference is then translated and rotated into a new position.
+![SCR-20250418-orc](https://github.com/user-attachments/assets/bf6727b2-db99-4c2a-a841-ff272de3a2ba)
+
+* A reference to a new setPiece, [`setPieceTest02`](./setPieceTest02.usda) (a cone) is added at `/setTest01/setPieceTest02_001`. This new reference is then translated and rotated into a new position.
+* NOTE: Neither of the new references are added to the original `setTest01` layer. They are only present in the new override layer.
+![SCR-20250418-oqb](https://github.com/user-attachments/assets/ee6d48ef-8d7c-45f7-b847-e7cd2b264fb8)
+
+* If we then move the cone into a new position and save (running the `saveUSDOverrideEdits()` function within [`MayaUSDOverrides.py`](./MayaUSDOverrides.py)), a new override will be created with this new edit ([setTest01_override_v002](./usd_overrides/setTest01_override_v002.usda)), and the filePath attribute in the mayaUsdProxyShape is updated to this new override file. setTest01_override_v001 will not be changed.
+![SCR-20250418-ox0](https://github.com/user-attachments/assets/126bf5e8-5ce6-46db-a70f-ca2dc1f981b3)
+
+
