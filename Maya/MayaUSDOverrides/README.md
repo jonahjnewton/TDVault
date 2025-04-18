@@ -11,7 +11,7 @@ To get around this, we can create a new USD layer that references the USD we wis
 
 ### Creating the override layer
 The logic for the `mayaUsdProxyShape` and override layer creation can be found in the `createOverrideLayer()` function within [`MayaUSDOverrides.py`](./MayaUSDOverrides.py)
-```
+```python
 def createOverrideLayer(asset_name, asset_path):
         """
         Create a Maya USD layer with an override layer, referencing an asset. 
@@ -55,7 +55,7 @@ def createOverrideLayer(asset_name, asset_path):
 ### Adding new sub-assets (set-dressing)
 The logic for adding multiple versions of a sub-asset can be found in `addNewSubAssetReferenceToLayer()` within [`MayaUSDOverrides.py`](./MayaUSDOverrides.py)
 
-```
+```python
 def addNewSubAssetReferenceToLayer(layer, default_prim_path, asset_name, asset_path):
         """
         Add a new versioned sub-asset reference to the layer.
@@ -81,7 +81,7 @@ def addNewSubAssetReferenceToLayer(layer, default_prim_path, asset_name, asset_p
 ### Version control with override layers (saving the edits non-destructively)
 When saving the Maya scene, a callback checks for any dirty USD stages (USD stages with edits) in the scene, and versions up the dirty stages. It then updates the filepaths for the dirty stage's `mayaUsdProxyShape` to point to the newly saved version.
 * The logic for this callback can be found in the `saveUSDOverrideEdits()` function within [`MayaUSDOverrides.py`](./MayaUSDOverrides.py)
-```
+```python
 def saveUSDOverrideEdits():
     """
     This function saves the current USD override edits for Maya USD stages to new versioned USD files.
