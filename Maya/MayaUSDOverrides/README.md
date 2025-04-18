@@ -23,7 +23,8 @@ def createOverrideLayer(asset_name, asset_path):
         Returns:
             tuple: The mayaUsdProxyShape node and layer created in it.
         """
-        import mayaUsd.ufe as mayaUsdUfe #import this at runtime because otherwise maya crashes on startup
+        #import this at runtime because otherwise maya crashes on startup
+        import mayaUsd.ufe as mayaUsdUfe 
 
         node = cmds.createNode('mayaUsdProxyShape', name=asset_name)
         node_long = cmds.ls(node, long=True)[0]
@@ -33,7 +34,6 @@ def createOverrideLayer(asset_name, asset_path):
         if(not os.path.exists(usd_overrides_path)):
             os.mkdir(usd_overrides_path)
 
-        #node = cmds.ls(asset_name, long=True)[0]
         stage = mayaUsdUfe.getStage(node_long)
 
         # Create a new versioned override layer
@@ -91,11 +91,14 @@ def saveUSDOverrideEdits():
     import maya.OpenMaya as api
     api.MSceneMessage.addCallback(api.MSceneMessage.kBeforeSave, saveUSDOverrideEdits)
     """
-    import mayaUsd.ufe as mayaUsdUfe #import this at runtime because otherwise maya crashes on startup
+    #import this at runtime because otherwise maya crashes on startup
+    import mayaUsd.ufe as mayaUsdUfe
+
     usd_overrides_path = "/".join(os.path.dirname(cmds.file(q=True, sn=True)))+"/usd_overrides"
     for n in cmds.ls(type="mayaUsdProxyShape"):
         stage = mayaUsdUfe.getStage(cmds.ls(n, long=True)[0])
         overrideLayer = stage.GetRootLayer()
+
         if(overrideLayer.dirty and not cmds.getAttr(n+".filePath").startswith(usd_overrides_path)):
             override_path = usd_overrides_path+"/"+n.split("|")[-1]+"_override_v"+str(findLatestOverrideVersion(n.split("|")[-1])+1).zfill(3)+".usd"
             overrideLayer.Export(override_path)
