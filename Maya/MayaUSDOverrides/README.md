@@ -13,7 +13,7 @@ However when closing the scene, the edits to USD stages must either be applied t
 ## Solution
 To get around this, we can create a new USD layer that references the USD we wish to edit, and apply overrides to this new USD layer instead. We can even set up a callback to run on scene save to version these override files, so we can go back to a previous version if need be (e.g. with Flow Production Tracking).
 
-The following code snippets and examples are available in the [TDVault GitHub repo](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/).
+**The following code snippets and examples are available in the [TDVault GitHub repo](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/).**
 
 ### Creating the override layer
 The logic for the `mayaUsdProxyShape` and override layer creation can be found in the `createOverrideLayer()` function within [`MayaUSDOverrides.py`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/MayaUSDOverrides.py)
@@ -113,7 +113,7 @@ def saveUSDOverrideEdits():
 ```
 
 ## Example
-An example of layers created with these functions can be found in [usd_overrides](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/usd_overrides).
+An example of USD layers created with these functions (+ dependencies) can be found in [usd_overrides](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/usd_overrides).
 
 * [`setTest01`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/setTest01.usda) has one reference to [`setPieceTest01`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/setPieceTest01.usda) (a cube) at `/setTest01/setPieceTest01_001`. This setPiece reference has some transformation data on it.
 ![SCR-20250418-opp](https://github.com/user-attachments/assets/98e283bb-6a92-4654-a442-4dd20d096f11)
