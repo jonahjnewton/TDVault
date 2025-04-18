@@ -5,6 +5,8 @@ Over my time as a Pipeline Technical Director in the 3D Animation & Visual Effec
 
 Many of these pages will link to folders/files in the [TDVault GitHub repo](https://github.com/jonahjnewton/TDVault) (which runs this website). This repo contains scripts and examples for the topics on this site.
 
+I am currently the Pipeline Technical Director at the [UTS Animal Logic Academy](https://animallogicacademy.uts.edu.au/).
+
 ## Katana
 *  [Creating/Pasting Nodes in a Floating Layer in Katana](./Katana/KatanaFloatingNodes/README.md)
 
