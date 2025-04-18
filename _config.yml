@@ -1,4 +1,1 @@
 remote_theme: jonahjnewton/TDVaultSite
-
-plugins:
-  - jekyll-optional-front-matter
