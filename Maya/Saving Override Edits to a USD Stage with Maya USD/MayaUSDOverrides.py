@@ -2,7 +2,7 @@ import os
 import shutil
 from maya import cmds
 
-def exampleStage():
+def exampleOverride():
     """
     Example function to demonstrate how to create a USD override layer and add a reference to it.
     
@@ -10,18 +10,25 @@ def exampleStage():
     which has a sub-asset (setPieceTest01) already referenced in it.
     The function also demonstrates how to add versioned references to a sub-asset (setPieceTest02) 
     to the layer.
+
+    You can find the output of this function in the usd_overrides directory (with some transform overrides 
+    applied to show how an artist's edits are applied).
     """
 
     # Create a Maya USD stage with an override layer for a
     mayaProxyShape_node, layer = createOverrideLayer("setTest01", "./setTest01.usda")
 
-    # Add two references of setPieceTest02 to the layer
+    # Add another reference of setPieceTest01 to the layer (once is already in the set)
+    # This will be added at the path /setTest01/setPieceTest01_002
+    setPieceTest01_path = "./setPieceTest01.usda"
+    setPieceTest01_name = "setPieceTest01"
+    addNewSubAssetReferenceToLayer(layer, layer.GetDefaultPrim().pathString, setPieceTest01_name, setPieceTest01_path)
+
+    # Add one reference of setPieceTest02 to the layer (a new sub-asset)
+    # This will be added at the path /setTest01/setPieceTest02_001
     setPieceTest02_path = "./setPieceTest02.usda"
-    setPiece_name = "setPieceTest02"
-
-    addNewSubAssetReferenceToLayer(layer, layer.GetDefaultPrim().pathString, setPiece_name, setPieceTest02_path)
-
-    addNewSubAssetReferenceToLayer(layer, layer.GetDefaultPrim().pathString, setPiece_name, setPieceTest02_path)
+    setPieceTest02_name = "setPieceTest02"
+    addNewSubAssetReferenceToLayer(layer, layer.GetDefaultPrim().pathString, setPieceTest02_name, setPieceTest02_path)
 
 def createOverrideLayer(asset_name, asset_path):
         """
@@ -112,7 +119,10 @@ def saveUSDOverrideEdits():
     """
     This function saves the current USD override edits for Maya USD stages to new versioned USD files.
     It checks if the override layer is dirty and saves it to a new file in the usd_overrides directory.
-    This function could be added to an onSave callback to automatically save the overrides when the scene is saved.
+    This function could be added to Maya's kBeforeSave callback to automatically save the overrides when the scene is saved.
+
+    import maya.OpenMaya as api
+    api.MSceneMessage.addCallback(api.MSceneMessage.kBeforeSave, saveUSDOverrideEdits)
     """
     import mayaUsd.ufe as mayaUsdUfe #import this at runtime because otherwise maya crashes on startup
     usd_overrides_path = "/".join(cmds.file(q=True, sn=True).split("/")[0:-2])+"/usd_overrides"

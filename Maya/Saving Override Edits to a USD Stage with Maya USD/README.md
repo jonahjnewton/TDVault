@@ -9,7 +9,7 @@ Maya USD stores edits to USD stages in memory while you have the Maya scene open
 However when closing the scene, the edits to USD stages must either be applied to the referenced stages or discarded.
 - Maya does have the option to save edits to USD stages within the Maya scene; however, if the edits total to more than 2GB of data, any further edits will be discarded. Not viable for pipeline use.
 ## Solution
-To get around this, we can create a new USD layer that references the USD we wish to edit, and apply overrides to this new USD layer instead. We can even set up an onSave callback to version these override files, so we can go back to a previous version if need be (e.g. with Flow Production Tracking).
+To get around this, we can create a new USD layer that references the USD we wish to edit, and apply overrides to this new USD layer instead. We can even set up a callback to run on scene save to version these override files, so we can go back to a previous version if need be (e.g. with Flow Production Tracking).
 
 - The logic for the `mayaUsdProxyShape` and override layer creation can be found in the `createOverrideLayer()` function within `MayaUSDOverrides.py`
 - The logic for adding multiple versions of one asset can be found in `addNewSubAssetReferenceToLayer()` within `MayaUSDOverrides.py`
