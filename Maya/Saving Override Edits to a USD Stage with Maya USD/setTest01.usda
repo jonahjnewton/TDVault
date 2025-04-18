@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    defaultPrim = "setTest01"
+)
+
+def Xform "setTest01"
+{
+    def "setPieceTest01_001" (
+        prepend references = @./setPieceTest01.usda@
+    )
+    {
+        float3 xformOp:rotateXYZ = (39.642807, 54.559742, 0)
+        double3 xformOp:translate = (-8.058327568410139, 3.568049993520169, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ"]
+    }
+}
+
