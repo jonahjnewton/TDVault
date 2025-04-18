@@ -28,8 +28,8 @@ def createOverrideLayer(asset_name, asset_path):
         node = cmds.createNode('mayaUsdProxyShape', name=asset_name)
         node_long = cmds.ls(node, long=True)[0]
         
-        # Create override layer for layout set overrides/to combine fx set layers
-        usd_overrides_path = "/".join(cmds.file(q=True, sn=True).split("/")[0:-2])+"/usd_overrides"
+        # Create override folder if it doesn't exist
+        usd_overrides_path = "/".join(os.path.dirname(cmds.file(q=True, sn=True)))+"/usd_overrides"
         if(not os.path.exists(usd_overrides_path)):
             os.mkdir(usd_overrides_path)
 
@@ -92,7 +92,7 @@ def saveUSDOverrideEdits():
     api.MSceneMessage.addCallback(api.MSceneMessage.kBeforeSave, saveUSDOverrideEdits)
     """
     import mayaUsd.ufe as mayaUsdUfe #import this at runtime because otherwise maya crashes on startup
-    usd_overrides_path = "/".join(cmds.file(q=True, sn=True).split("/")[0:-2])+"/usd_overrides"
+    usd_overrides_path = "/".join(os.path.dirname(cmds.file(q=True, sn=True)))+"/usd_overrides"
     for n in cmds.ls(type="mayaUsdProxyShape"):
         stage = mayaUsdUfe.getStage(cmds.ls(n, long=True)[0])
         overrideLayer = stage.GetRootLayer()
