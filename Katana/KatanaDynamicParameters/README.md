@@ -22,7 +22,7 @@ from Katana import Utils
 Utils.EventModule.ProcessAllEvents()
 ```
 
-When a node wants to create a dynamic parameter while the user is viewing that node, it schedules an event to update the UI with this new parameter. 
+When a node wants to create a dynamic parameter while the user is viewing the parameters UI of that node, it schedules an event to update the UI with this new parameter. 
 
 Let's once use the example of a script that allows a user to auto-set an expression for the output location of a **RenderOutputDefine** node. 
 * By default, `locationType` is set to local, which means we can't set a location for the render. 
