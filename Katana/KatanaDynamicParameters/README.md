@@ -13,7 +13,7 @@ node = NodegraphAPI.GetNode("RenderOutputDefine1")
 node.checkDynamicParameters()
 ```
 
-When a dynamic parameter is due to be updated when the GUI is not running (when running Katana in batch/script mode), since many of Katana's events which cause nodes to be reevaluated won't be registered (such as UI redraw events), we need to manually tell the node to check if any dynamic parameters need updating and update them before performing any actions on the dynamic parameters.
+When a dynamic parameter is due to be updated while the GUI is not running (when running Katana in batch/script mode), since many of Katana's events which cause nodes to be reevaluated won't be registered (such as UI redraw events), we need to manually tell the node to check if any dynamic parameters need updating and update them before performing any actions on the dynamic parameters.
 
 ## ProcessAllEvents
   
