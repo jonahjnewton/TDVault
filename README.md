@@ -8,7 +8,7 @@ Many of these pages will link to folders/files in the [TDVault GitHub repo](http
 ## Topics
 ### Katana
 *  [Creating/Pasting Nodes in a Floating Layer in Katana](./Katana/KatanaFloatingNodes/README.md)
-*  [Programatically Editing Dynamic Parameters in Katana](./Katana/KatanaDynamicParameters/README.md)
+*  [Programmatically Editing Dynamic Parameters in Katana](./Katana/KatanaDynamicParameters/README.md)
 
 ### Maya
 * [Saving Override Edits to a USD Stage with Maya USD](./Maya/MayaUSDOverrides/README.md)

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Programatically Editing Dynamic Parameters in Katana
+title: Programmatically Editing Dynamic Parameters in Katana
 ---
-Updating [dynamic parameters](https://learn.foundry.com/katana/dev-guide/Scripting/WorkingWithNodes/Parameters/DynamicParameters.html) in Katana programatically can be a bit complicated - and can act differently when Katana is open in a GUI vs when running renders in batch mode from a command line (such as on a render farm). 
+Updating [dynamic parameters](https://learn.foundry.com/katana/dev-guide/Scripting/WorkingWithNodes/Parameters/DynamicParameters.html) in Katana programmatically can be a bit complicated - and can act differently when Katana is open in a GUI vs when running renders in batch mode from a command line (such as on a render farm). 
 
 An example of a dynamic parameter can be seen in Katana's **[RenderOutputDefine](https://learn.foundry.com/katana/content/rg/3d_nodes/renderoutputdefine.html)** node. When setting the `locationType` parameter to `file`, a new `renderLocation` parameter is created.
 
