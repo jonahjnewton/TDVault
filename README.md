@@ -12,3 +12,6 @@ Many of these pages will link to folders/files in the [TDVault GitHub repo](http
 
 ### Maya
 * [Saving Override Edits to a USD Stage with Maya USD](./Maya/MayaUSDOverrides/README.md)
+
+### RenderMan
+*  [Setting Threads on RenderMan 25+ denoise_batch Executable](./RenderMan/DenoiseBatchThreads/README.md)
