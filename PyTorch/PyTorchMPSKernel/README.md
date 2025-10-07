@@ -71,7 +71,7 @@ dispatch_sync(serialQueue, ^{
 	// Tell PyTorch to commit the call to the kernel 
 	torch::mps::commit();
 }
-	```
+```
 
 ## Further Reading
 
