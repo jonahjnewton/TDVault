@@ -65,10 +65,10 @@ id<MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
 
 #### Now
 ```objc++
-// Create PyTorch's Metal command buffer
+// Get PyTorch's Metal command buffer
 id<MTLCommandBuffer> cb = torch::mps::get_command_buffer();
 
-// Create PyTorch's Metal command queue
+// Get PyTorch's Metal command queue
 dispatch_queue_t serialQueue = torch::mps::get_dispatch_queue();
 
 // Ensures command buffers sent to the queue are processed synchronously (see Notes section)
