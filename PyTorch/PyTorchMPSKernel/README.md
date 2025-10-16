@@ -12,14 +12,6 @@ When setting up a compute pipeline in Metal, we need to set up argument buffers 
 Luckily, we can access the tensor's storage and pass it directly to our kernel.
 #### Before
 ```objc++
-// Helper function to retrieve the `MTLBuffer` from a `torch::Tensor`.
-static inline id<MTLBuffer> getMTLBufferStorage(const torch::Tensor& tensor) {
-  return __builtin_bit_cast(id<MTLBuffer>, tensor.storage().data());
-}
-
-// Setup compute pipeline
-...
-
 // Create output Tensor object
 torch::Tensor output_tensor = torch::zeros_like(input_img);
 
@@ -34,6 +26,14 @@ id<MTLBuffer> outputTensorBuffer = [device newBufferWithBytes:output_tensor.data
 ```
 #### Now
 ```objc++
+// Helper function to retrieve the `MTLBuffer` from a `torch::Tensor`.
+static inline id<MTLBuffer> getMTLBufferStorage(const torch::Tensor& tensor) {
+  return __builtin_bit_cast(id<MTLBuffer>, tensor.storage().data());
+}
+
+// Compute pipeline setup
+...
+
 // Create output Tensor object
 torch::Tensor a = torch::zeros_like(input_img);
 
