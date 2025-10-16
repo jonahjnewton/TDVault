@@ -4,7 +4,7 @@ title: Giving PyTorch Control Over A Metal MPS Kernel
 ---
 There isn't a lot of up-to-date documentation online on how to efficiently call custom Metal Performance Shader (MPS) Kernels through PyTorch in Objective C++.
 
-A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/pytorch-cpp-metal-tutorial). I'd recommend going through that first to help get your bearings on first setting up an MPS Kernel for PyTorch, however, the section on calling Metal kernels from C++ is out of date. Below, I will go through what has changed with PyTorch's MPS backend since that article was written.
+A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/pytorch-cpp-metal-tutorial). I'd recommend going through that first to help get your bearings on first setting up an MPS Kernel for PyTorch, however, the section on calling Metal kernels from C++ is out of date. Below, I will go through what has changed with PyTorch's MPS backend since that article was written. I have updated the example Obj-C++ extension code from the tutorial above and included it in the GitHub repo for this site, [which you can find here](https://github.com/jonahjnewton/TDVault/blob/main/PyTorch/PyTorchMPSKernel/cpp_extension.mm).
 
 ## Providing Tensor Pointers to Argument Buffers
 When setting up a compute pipeline in Metal, we need to set up argument buffers to pass our tensors to the MPS Kernel. The trick, however, comes down to ensuring ownership of the argument buffer memory remains with PyTorch rather than inefficiently needing to copy memory over to a region that Metal controls, and then back to PyTorch. For example, if we pass a tensor to our kernel to use, we need to make sure our kernel has access to that memory location.
