@@ -9,9 +9,17 @@ A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/
 ## Providing Tensor Pointers to Argument Buffers
 When setting up a compute pipeline in Metal, we need to set up argument buffers to pass our tensors to the MPS Kernel. The trick, however, comes down to ensuring ownership of the argument buffer memory remains with PyTorch rather than inefficiently needing to copy memory over to a region that Metal controls, and then back to PyTorch. For example, if we pass a tensor to our kernel to use, we need to make sure our kernel has access to that memory location.
 
-Luckily, PyTorch's MPS backend now provides MTLBuffer storage for tensors, which we can pass directly to our kernel.
+Luckily, we can access the tensor's storage and pass it directly to our kernel.
 #### Before
 ```objc++
+// Helper function to retrieve the `MTLBuffer` from a `torch::Tensor`.
+static inline id<MTLBuffer> getMTLBufferStorage(const torch::Tensor& tensor) {
+  return __builtin_bit_cast(id<MTLBuffer>, tensor.storage().data());
+}
+
+// Setup compute pipeline
+...
+
 // Create output Tensor object
 torch::Tensor output_tensor = torch::zeros_like(input_img);
 
