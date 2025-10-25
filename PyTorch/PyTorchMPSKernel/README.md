@@ -4,7 +4,7 @@ title: Giving PyTorch Control Over A Metal MPS Kernel
 ---
 There isn't a lot of up-to-date documentation online on how to efficiently call custom Metal Performance Shader (MPS) Kernels through PyTorch in Objective C++.
 
-A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/pytorch-cpp-metal-tutorial). I'd recommend going through that first to help get your bearings on first setting up an MPS Kernel for PyTorch, however, the section on calling Metal kernels from C++ is out of date. I have updated the example Obj-C++ extension code from the tutorial above and included it in the GitHub repo for this site, [which you can find here](https://github.com/jonahjnewton/TDVault/blob/main/PyTorch/PyTorchMPSKernel/cpp_extension.mm).
+A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/pytorch-cpp-metal-tutorial). I'd recommend going through that first to help get your bearings on first setting up an MPS Kernel for PyTorch. ~~However, the section on calling Metal kernels from C++ is out of date~~. UPDATE: I have contributed to smrfeld's tutorial above, which now includes the example code [I wrote for this post](https://github.com/jonahjnewton/TDVault/blob/main/PyTorch/PyTorchMPSKernel/cpp_extension.mm).
 
 Below, I will go into more detail about what has changed with PyTorch's MPS backend since that article was written.
 
