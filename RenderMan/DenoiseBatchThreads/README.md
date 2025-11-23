@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PhotoRealistic RenderMan - Setting Threads on RenderMan 25+ denoise_batch Executable
+title: PhotoRealistic RenderMan - Setting Threads for denoise_batch
 ---
 Pixar's PhotoRealistic RenderMan 25+ [denoise_batch](https://rmanwiki-26.pixar.com/space/REN26/19661811/Denoiser+Command+Line) executable unfortunately does not provide an argument to set the number of threads to use when denoising images, and as such, it uses all CPU threads on the computer it runs on. This makes it very hard to manage `denoise_batch` jobs on a render farm without setting aside specific machines/blades specifically for denoising. However, there is a workaround.
 
@@ -19,4 +19,4 @@ export OMP_NUM_THREADS=12
 denoise_batch [args]
 ```
 
-Whether you're going for photorealistic RenderMan renders or stylised looks, the denoiser is world-class for cleaning up renders and is used in studios all over the world. I hope this tutorial helps individual users and studios alike utilise PhotoRealistic RenderMan's denoiser at scale.
+Whether you're going for photorealistic RenderMan renders or stylised looks, the denoiser is world-class for cleaning up renders and is used in studios all over the world. I hope this tutorial helps individual users and studios alike utilise the PhotoRealistic RenderMan denoiser at scale.
