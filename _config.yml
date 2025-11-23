@@ -1,8 +1,8 @@
 remote_theme: jonahjnewton/TDVaultSite
 
 title:               TD Vault
-tagline:             'Notes on Programming for 3D Animation & VFX'
-description:         'Notes on Programming for 3D Animation & VFX. My learnings as a Pipeline TD that may not be available or fully documented online. By <a href="https://jonahnewton.com.au">Jonah J. Newton</a>'
+tagline:             'Notes on Programming for Animation & VFX'
+description:         'Notes on Programming for Animation & VFX. My learnings as a Pipeline TD that may not be available or fully documented online. By <a href="https://jonahnewton.com.au">Jonah J. Newton</a>'
 paginate:            5
 permalink:           pretty
 
