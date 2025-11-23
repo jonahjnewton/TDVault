@@ -17,3 +17,5 @@ nodeGraphTab = UI4.App.Tabs.FindTopTab('Node Graph')
 nodeGraphTab.prepareFloatingLayerWithPasteBounds([newNode])
 nodeGraphTab.enableFloatingLayer()
 ```
+
+At the moment, this method isn't shown in the Foundry Katana documentation, so I hope this helps you create some nice user-friendly workflows!
