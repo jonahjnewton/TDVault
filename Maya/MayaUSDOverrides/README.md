@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Saving Override Edits to a USD Stage with Maya USD
+title: Maya USD - Saving Override Edits to a Stage
 ---
 At the UTS Animal Logic Academy, I wrote a pipeline that utilised Autodesk's Maya USD to allow for set assembly and set dressing/layout overrides to be published down the pipe while leaving the original set USD untouched, but there are some quirks.
 ## Problem
@@ -14,7 +14,7 @@ To get around this, we can create a new USD layer that references the USD we wis
 
 **The following code snippets and examples are available in the [TDVault GitHub repo](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/).**
 
-### Creating the override layer
+### Creating the override layer with Maya USD
 The logic for the `mayaUsdProxyShape` and override layer creation can be found in the `createOverrideLayer()` function within [`MayaUSDOverrides.py`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/MayaUSDOverrides.py)
 ```python
 def createOverrideLayer(asset_name, asset_path):
@@ -83,7 +83,7 @@ def addNewSubAssetReferenceToLayer(layer, default_prim_path, asset_name, asset_p
         return file_dag_path
 ```
 
-### Version control with override layers (saving the edits non-destructively)
+### Version control with override layers (saving the edits non-destructively with Maya USD)
 When saving the Maya scene, a callback checks for any dirty USD stages (USD stages with edits) in the scene, and versions up the dirty stages. It then updates the filepaths for the dirty stage's `mayaUsdProxyShape` to point to the newly saved version.
 * The logic for this callback can be found in the `saveUSDOverrideEdits()` function within [`MayaUSDOverrides.py`](https://github.com/jonahjnewton/TDVault/tree/main/Maya/MayaUSDOverrides/MayaUSDOverrides.py)
 ```python

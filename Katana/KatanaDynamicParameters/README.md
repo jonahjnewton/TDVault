@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programmatically Editing Dynamic Parameters in Katana
+title: Katana Python - Programmatically Editing Dynamic Parameters
 ---
 Updating [dynamic parameters](https://learn.foundry.com/katana/dev-guide/Scripting/WorkingWithNodes/Parameters/DynamicParameters.html) in Foundry's Katana programmatically can be a bit complicated - and can act differently when Katana is open in a GUI vs when running renders in batch mode from a command line (such as on a render farm). 
 

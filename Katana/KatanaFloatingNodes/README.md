@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating/Pasting Nodes in a Floating Layer in Katana
+title: Katana Python - Creating/Pasting Nodes in a Floating Layer
 ---
 When creating a node in Foundry's Katana through the Tab menu (or pasting a node), the node enters a "floating" state which allows the user to place the node wherever they like.
 

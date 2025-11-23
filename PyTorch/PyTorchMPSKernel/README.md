@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Giving PyTorch Control Over A Metal MPS Kernel
+title: Giving PyTorch MPS Control Over A Metal Kernel
 ---
 There isn't a lot of up-to-date documentation online on how to efficiently call custom Metal Performance Shader (MPS) Kernels through PyTorch in Objective C++.
 
 A useful tutorial is this one by [smrfeld on GitHub](https://github.com/smrfeld/pytorch-cpp-metal-tutorial). I'd recommend going through that first to help get your bearings on first setting up an MPS Kernel for PyTorch. ~~However, the section on calling Metal kernels from C++ is out of date~~. UPDATE: I have contributed to smrfeld's tutorial above, which now includes the example code [I wrote for this post](https://github.com/jonahjnewton/TDVault/blob/main/PyTorch/PyTorchMPSKernel/cpp_extension.mm).
 
-Below, I will go into more detail about what has changed with PyTorch's MPS backend since that article was written.
+Below, I will go into more detail about what has changed with the PyTorch MPS backend since that article was written.
 
-## Providing Tensor Pointers to Argument Buffers
+## Providing PyTorch MPS Tensor Pointers to Argument Buffers
 When setting up a compute pipeline in Metal, we need to set up argument buffers to pass our tensors to the MPS Kernel. The trick, however, comes down to ensuring ownership of the argument buffer memory remains with PyTorch rather than inefficiently needing to copy memory over to a region that Metal controls, and then back to PyTorch. For example, if we pass a tensor to our kernel to use, we need to make sure our kernel has access to that memory location.
 
 Luckily, we can access the tensor's storage and pass it directly to our kernel.
@@ -45,7 +45,7 @@ torch::Tensor a = torch::zeros_like(input_img);
 
 Providing the tensor's MTLBuffer storage setup by PyTorch means that not only do we no longer need to manage the tensor's memory allocation, but it gives PyTorch full control over the setup and management of the tensor's memory. Any changes made to this tensor in our kernel directly update the tensor in C++, which is then passed back to Python.
 
-## Command Buffer and Queue
+## PyTorch MPS Command Buffer and Queue
 PyTorch also gives us a command queue and buffer to utilise via `torch::mps::get_dispatch_queue()` and `torch::mps::get_command_buffer()` respectively, rather than needing to create them ourselves. This gives PyTorch complete control over the buffer used to store commands to send to the GPU, and the queue with which these commands are sent to the GPU. When we are done setting up the call to the kernel, we use `torch::mps::commit()` to let PyTorch manage adding the command to the buffer/the queue.
 #### Before
 ```objc++
@@ -88,5 +88,5 @@ dispatch_sync(serialQueue, ^{
 * The only other article I can find with this updated info is [this one by Praburam](https://medium.com/@praburam_93885/custom-pytorch-operations-for-metal-backend-889736c6bc2a), which is based on [this sample code from Apple](https://developer.apple.com/documentation/metal/customizing-a-pytorch-operation?language=objc). 
 
 ## Notes
-* In the new queue code, we add a `dispatch_sync` call to ensure any blocks submitted to the queue are run synchronously. This code is visible in all code I can find using this new method, including [Apple's example code](https://developer.apple.com/documentation/metal/customizing-a-pytorch-operation?language=objc). I am unsure if this is necessary in *all* PyTorch MPS kernel calls due to Torch's MPS backend's command queue being explicitly synchronous (Apple's example code specifies the variable `serialQueue`, so this may be the case), or if it might be possible to also utilise async kernel calls with PyTorch. From my testing I didn't see any difference between using `dispatch_async` and `dispatch_sync`, but further investigation is needed.
+* In the new queue code, we add a `dispatch_sync` call to ensure any blocks submitted to the queue are run synchronously. This code is visible in all code I can find using this new method, including [Apple's example code](https://developer.apple.com/documentation/metal/customizing-a-pytorch-operation?language=objc). I am unsure if this is necessary in *all* PyTorch MPS kernel calls due to the PyTorch MPS backend's command queue being explicitly synchronous (Apple's example code specifies the variable `serialQueue`, so this may be the case), or if it might be possible to also utilise async kernel calls with PyTorch. From my testing I didn't see any difference between using `dispatch_async` and `dispatch_sync`, but further investigation is needed.
 * [Apple's example code](https://developer.apple.com/documentation/metal/customizing-a-pytorch-operation?language=objc) wraps the Metal device initialisation and handling in an `@autorelease` statement, which is used in Metal to ensure temporary objects are released at the end of the statement, rather than waiting until the end of the block to release. This is not directly related to PyTorch, but is still worth reading into to understand how to reduce peak memory usage in your functions.
