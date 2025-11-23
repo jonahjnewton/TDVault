@@ -1,3 +1,6 @@
+---
+title: TD Vault - Notes on Programming for Animation & VFX
+---
 Hi! My name is Jonah. I write software to help people create cool stuff. 
 Welcome to TD Vault.
 

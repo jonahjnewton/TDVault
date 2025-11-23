@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Maya USD - Saving Override Edits to a Stage
+description: Maya USD - I wrote a pipeline to allow for set dressing overrides to be published down-pipe while leaving the original USD untouched. But, there are some quirks
 ---
 At the UTS Animal Logic Academy, I wrote a pipeline that utilised Autodesk's Maya USD to allow for set assembly and set dressing/layout overrides to be published down the pipe while leaving the original set USD untouched, but there are some quirks.
 ## Problem

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Katana Scripting - Creating/Pasting Nodes in a Floating Layer
+description: Katana Scripting - When creating a node in Katana through the Tab menu, the node enters a floating state in which the user can place the node wherever they like
 ---
 Katana scripting is commonplace for surfacing/lighting artists in the post-production industry, who just want to create tools which are easy to use and intuitive for themselves and their peers. 
 
