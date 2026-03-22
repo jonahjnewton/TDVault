@@ -1,13 +1,13 @@
 ---
 layout: post
-title: RenderMan - Setting Threads for denoise_batch
+title: RenderMan - Set Threads on denoise_batch
 description: Pixar's RenderMan 25+ denoise_batch does not provide an arg to set the number of threads when denoising images. However, there is a workaround.
 ---
 Pixar's RenderMan 25+ [denoise_batch](https://rmanwiki-26.pixar.com/space/REN26/19661811/Denoiser+Command+Line) executable unfortunately does not provide an argument to set the number of threads to use when denoising images, and as such, it uses all available CPU threads on the computer it runs on. This makes it very hard to manage `denoise_batch` jobs on a render farm without setting aside specific machines/blades specifically for denoising, especially on Linux. However, there is a workaround.
 
 Setting the `OMP_NUM_THREADS` environment variable [allows us to tell OpenMP](https://www.openmp.org/spec-html/5.0/openmpse50.html) (the multiprocessing library used by `denoise_batch`) how many threads to use.
 
-## RenderMan Examples
+## Examples - RenderMan denoise_batch Threads
 The following examples will set `OMP_NUM_THREADS` to 12 on different platforms, telling the denoiser to use 12 threads. You can substitute 12 with any integer.
 ### Windows
 ```
