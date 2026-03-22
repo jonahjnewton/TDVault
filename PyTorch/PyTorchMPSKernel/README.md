@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Giving PyTorch MPS Control Over A Metal Kernel
+title: PyTorch MPS - Correct Metal Kernel Setup
 description: PyTorch MPS - There's not a lot of up-to-date documentation online on efficiently calling PyTorch Metal Performance Shader (MPS) Kernels in Objective C++.
 ---
 There isn't a lot of up-to-date documentation online on how to efficiently call custom Metal Performance Shader (MPS) Kernels through PyTorch in Objective C++.
