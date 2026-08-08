@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>1.0000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/Katana/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/Maya/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/PyTorch/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/RenderMan/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/Katana/KatanaFloatingNodes/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/Katana/KatanaDynamicParameters/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/Maya/MayaUSDOverrides/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/PyTorch/PyTorchMPSKernel/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://tdvault.jonahnewton.com.au/RenderMan/DenoiseBatchThreads/README/</loc>
+       <lastmod>2026-03-22T10:41:28+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.8000</priority>
+  </url>
+</urlset>
